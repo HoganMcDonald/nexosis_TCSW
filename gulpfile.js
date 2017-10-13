@@ -28,4 +28,4 @@ gulp.task('watch:styles', () => {
 });
 
 //default tasks
-gulp.task('default', ['styles']);
+gulp.task('default', ['watch:styles']);
