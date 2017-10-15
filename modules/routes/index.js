@@ -13,7 +13,7 @@ router.get('/', (req, res) =>
 
 router.post('/', (req, res)=> {
   let requestURL = `https://ml.nexosis.com/v1/models/${modelURL}/predict`;
-
+  console.log(req.body);
   request({
     url: requestURL,
     method: 'POST',
