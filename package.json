@@ -22,7 +22,8 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "jquery": "^3.2.1",
-    "nexosis-api-client": "^1.2.0"
+    "nexosis-api-client": "^1.2.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
