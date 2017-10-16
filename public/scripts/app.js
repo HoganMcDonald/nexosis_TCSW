@@ -1,3 +1,5 @@
+var waiting = false;
+
 //makes post to server
 var trainData = ()=> {
   // console.log('btn clicked');
@@ -7,12 +9,7 @@ var trainData = ()=> {
     data: 'train',
     success: getStatus
   });
-};
-
-//will check status on training - ideally recursive until status is complete or (failed)?
-var getStatus = ()=> {
-  console.log('checked');
-};
+}; // end trainData
 
 //takes a float value representing length of life in years (47.75976), returns object literal formatted for moment.js
 var constructDurration = (lifetime)=> {
@@ -33,14 +30,23 @@ var constructDurration = (lifetime)=> {
   }
 
   return dateObj;
-}
+} // end constructDurration
 
 // checks that all input fields are valid
 var validateForm = (prediction)=> {
-  return true;
-};
+  if (!waiting) {
+    data = prediction.data[0];
+    if (data.sex && data.education_2003_revision && data.marital_status) {
+      waiting = true;
+      return true;
+    }
+  } else {
+    return false;
+  }
+}; // end validateForm
 
 var clearForm = (response)=> {
+  waiting = false;
   let day = moment($('.date').val());
   day.add(constructDurration(Number(response.data[0].detail_age)))
   $('.output').text(day)
@@ -56,7 +62,7 @@ $(document).ready(()=>{
   $('#trainBtn').on('click', ()=> {
     // console.log('clicked');
     trainData();
-  });
+  }); // end train click event
 
   //submits the prediction data, prints on screen when proomise is returned, clears inputs
   $('#submit').on('click', ()=> {
@@ -70,8 +76,6 @@ $(document).ready(()=>{
       ]
     }
 
-    console.log(predictionData);
-
     //checks that all pieces of data are valid, then executes request
     if (validateForm(predictionData)) {
       $.ajax({
@@ -81,7 +85,7 @@ $(document).ready(()=>{
         success: clearForm
       });
     }
-  });
+  }); // end submit click event
 
 });
 
