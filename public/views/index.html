@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>I Know When You're Going to Die!</title>
     <link rel="stylesheet" href="/styles/main.min.css">
   </head>
 
-  <body>
-    <input type="date" class="date" value="">
+  <body ng-controller="mainController as mc" ng-init="mc.pageLoad()">
+    <input type="date" class="date" ng-model="mc.birthday">
 
     <h1>I Know When You're Going to Die!</h1>
-    <input type="text" class="sex" placeholder="Sex" value="">
-    <input type="text" class="marital_status" placeholder="Marital Status" value="">
-    <input type="text" class="education_2003_revision" placeholder="Education" value="">
-    <button type="button" name="submit" id="submit">Submit</button>
+    <select class="sex" ng-model="mc.sex">
+      <option disabled>Sex</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+    <select class="marital_status" ng-model="mc.marital_status">
+      <option disabled>Marital Status</option>
+      <option value="S">Never married, single</option>
+      <option value="M">Married</option>
+      <option value="W">Widowed</option>
+      <option value="D">Divorced</option>
+      <option value="U">Marital Status unknown</option>
+    </select>
+    <select class="education_2003_revision" ng-model="mc.education_2003_revision">
+      <option disabled>Highest Education</option>
+      <option value="1">8th grade or less</option>
+      <option value="2">9 - 12th grade, no diploma</option>
+      <option value="3">high school graduate or GED completed</option>
+      <option value="4">some college credit, but no degree</option>
+      <option value="5">Associate degree</option>
+      <option value="6">Bachelor’s degree</option>
+      <option value="7">Master’s degree</option>
+      <option value="8">Doctorate or professional degree</option>
+      <option value="9">Unknown</option>
+    </select>
+    <button type="button" name="submit" id="submit" ng-click="mc.submit()">Submit</button>
 
-    <h1>You will live to be:</h1>
-    <h2 class="output"></h2>
+    <ng-view></ng-view>
 
-    <h2>Guide:</h2>
-    <p>Education <br>
-1 ... 8th grade or less <br>
-2 ... 9 - 12th grade, no diploma <br>
-3 ... high school graduate or GED completed <br>
-4 ... some college credit, but no degree <br>
-5 ... Associate degree <br>
-6 ... Bachelor’s degree <br>
-7 ... Master’s degree <br>
-8 ... Doctorate or professional degree <br>
-9 ... Unknown <br>
-
-<br>
-<br>
-
-Marital Status <br>
-S ... Never married, single <br>
-M ... Married <br>
-W ... Widowed <br>
-D ... Divorced <br>
-U ... Marital Status unknown <br>
-<br><br>
-Sex <br>
-M <br>
-F</p>
     <!-- scripts -->
     <script src="vendors/jquery.min.js" charset="utf-8"></script>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
     <script src="vendors/moment.js" charset="utf-8"></script>
     <script src="scripts/app.js" charset="utf-8"></script>
   </body>

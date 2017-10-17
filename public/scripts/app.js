@@ -55,6 +55,61 @@ var clearForm = (response)=> {
   $('.marital_status').val('');
 };
 
+//declare angular app
+const app = angular.module('myApp', ['ngRoute']);
+
+//configure the routes
+app.config(($routeProvider)=> {
+  $routeProvider
+    .when('/', {
+      templateUrl: "views/partials/input.html"
+    })
+    .when('/death', {
+      templateUrl: "views/partials/output.html"
+    });
+}); // end config
+
+//main controller
+app.controller('mainController', function(dateService, $location) {
+  let vm = this;
+
+  console.log($location.path());
+
+  vm.pageLoad = function() {
+    if ($location.path() === '/death') {
+      if (dateService.birthday) {
+        vm.birthday = dateService.birthday;
+      } else {
+        $location.path('/');
+      }
+    } // end check current path
+  }; // end pageload
+
+  vm.submit = function() {
+    // grab data from models and package for http request - send to service after promise returns
+    let predictionData = {
+      "data": [
+        {
+          "sex": vm.sex,
+          "education_2003_revision": vm.education_2003_revision,
+          "marital_status": vm.marital_status
+        }
+      ]
+    }
+    if (validateForm(predictionData) && vm.birthday) {
+      // grab birthday and store in service
+      dateService.birthday = moment(vm.birthday);
+      // make prediction and cache results before rerouting
+      dateService.prediction(predictionData);
+      $location.path('/death')
+    }
+  }; // end submit button function
+}); // end controller
+
+app.service('dateService', function() {
+  let sv = this;
+});
+
 $(document).ready(()=>{
   console.log('ready');
 
@@ -87,6 +142,11 @@ $(document).ready(()=>{
     }
   }); // end submit click event
 
-});
 
-console.log(0.0012329842986681452 * 525600);
+
+
+
+
+
+
+});
