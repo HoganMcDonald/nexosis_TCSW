@@ -70,15 +70,13 @@ app.config(($routeProvider)=> {
 }); // end config
 
 //main controller
-app.controller('mainController', function(dateService, $location) {
+app.controller('mainController', function($location, $http) {
   let vm = this;
-
-  console.log($location.path());
 
   vm.pageLoad = function() {
     if ($location.path() === '/death') {
-      if (dateService.birthday) {
-        vm.birthday = dateService.birthday;
+      if (vm.birthday) {
+        vm.birthday = vm.birthday;
       } else {
         $location.path('/');
       }
@@ -86,6 +84,7 @@ app.controller('mainController', function(dateService, $location) {
   }; // end pageload
 
   vm.submit = function() {
+    vm.birthday = $('.date').val();
     // grab data from models and package for http request - send to service after promise returns
     let predictionData = {
       "data": [
@@ -98,17 +97,20 @@ app.controller('mainController', function(dateService, $location) {
     }
     if (validateForm(predictionData) && vm.birthday) {
       // grab birthday and store in service
-      dateService.birthday = moment(vm.birthday);
+      vm.birthday = moment(vm.birthday);
       // make prediction and cache results before rerouting
-      dateService.prediction(predictionData);
-      $location.path('/death')
+      $http.post('/', predictionData)
+        .then((response)=> {
+          vm.lifetime = response.data.data[0].detail_age;
+          vm.age = constructDurration(vm.lifetime);
+          console.log(vm.age);
+          $location.path('/death');
+        });
+
     }
   }; // end submit button function
 }); // end controller
 
-app.service('dateService', function() {
-  let sv = this;
-});
 
 $(document).ready(()=>{
   console.log('ready');
