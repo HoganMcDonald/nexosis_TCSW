@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="296px" height="427px" viewBox="0 0 296 427" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tombstone" fill="#000000">
+            <g>
+                <path d="M13,375 L283,375 L283,375 C290.179702,375 296,380.820298 296,388 L296,427 L0,427 L0,388 L0,388 C-8.79259876e-16,380.820298 5.82029825,375 13,375 Z" id="Rectangle"></path>
+                <path d="M28.0502723,116 L28,116 L28,362 L267,362 L267,116 L266.949728,116 C265.098022,51.6207599 212.327348,0 147.5,0 C82.6726518,0 29.9019781,51.6207599 28.0502727,115.999986 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
