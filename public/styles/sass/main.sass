@@ -1,4 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Carter+One)
+
+$appFont: 'Carter One'
+
 html
+  font-family: $appFont
   body
     margin: 0
     height: 100vh
@@ -15,8 +20,8 @@ html
         width: 100%
         max-height: 80%
       .results
-        max-width: 20vw
-        max-height: 80%
+        display: table
+        width: 20vw
         color: white
         position: fixed
         top: 14vh
@@ -24,9 +29,9 @@ html
         transform: translateX(-50%)
         text-align: center
         h1
-          font-size: 6vh
+          font-size: 4vh
         h2
-          font-size: 6vh
+          font-size: 4vh
     .controls
       grid-row-start: 2
       width: 40vw
@@ -35,6 +40,8 @@ html
       grid-template-columns: 40% 40%
       grid-column-gap: 20%
       grid-row-gap: 2vh
+      label
+        font-size: 10pt
       #submit
         grid-column-start: 1
         grid-column-end: 3
