@@ -91,6 +91,7 @@ app.controller('mainController', function($location, $http) {
           vm.lifetime = response.data.data[0].detail_age;
           vm.age = constructDurration(vm.lifetime);
           vm.birthday.add(vm.age);
+          vm.output = vm.birthday.format("hh:mma ddd MMMM Do YYYY");
           $location.path('/death');
         });
 
