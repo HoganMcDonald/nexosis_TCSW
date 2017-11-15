@@ -71,7 +71,7 @@ app.controller('mainController', function($location, $http) {
   }; // end pageload
 
   vm.submit = function() {
-    vm.birthday = moment($('.date').val());
+    vm.birthday = moment(vm.date);
     // grab data from models and package for http request - send to service after promise returns
     let predictionData = {
       "data": [
