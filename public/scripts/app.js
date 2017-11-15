@@ -46,7 +46,11 @@ var validateForm = (prediction)=> {
 const app = angular.module('myApp', ['ngRoute']);
 
 //configure the routes
-app.config(($routeProvider)=> {
+angular.module('myApp').config(router);
+
+router.$inject = ['$routeProvider', '$locationProvider'];
+
+function router($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: "views/partials/input.html"
@@ -54,7 +58,9 @@ app.config(($routeProvider)=> {
     .when('/death', {
       templateUrl: "views/partials/output.html"
     });
-}); // end config
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('');
+}; // end config
 
 //main controller
 app.controller('mainController', function($location, $http) {

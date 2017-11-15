@@ -32,5 +32,10 @@ router.post('/', (req, res)=> {
   });
 
 });
+router.use(function(req, res) {
+  res.sendFile('index.html', {
+    root: 'public/views/'
+  });
+});
 
 module.exports = router;
