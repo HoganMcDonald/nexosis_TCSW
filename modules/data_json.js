@@ -1,3 +1,5 @@
+// https://www.kaggle.com/cdc/mortality/data - keys
+
 module.exports = {
   "columns": {
     "sex": {
@@ -18,10 +20,34 @@ module.exports = {
       "aggregation": "mode",
       "role": "feature"
     },
+    "method_of_disposition": { // ------------- add this
+      "dataType": "string",
+      "imputation": "mode",
+      "aggregation": "mode",
+      "role": "feature"
+    },
     //target
     "detail_age": {
       "dataType": "numeric",
       "imputation": "mean",
+      "aggregation": "sum",
+      "role": "target"
+    },
+    "manner_of_death": { // ------------- add this
+      "dataType": "numeric",
+      "imputation": "mode",
+      "aggregation": "sum",
+      "role": "target"
+    },
+    "358_cause_recode": { // ------------- add this
+      "dataType": "numeric",
+      "imputation": "mode",
+      "aggregation": "sum",
+      "role": "target"
+    },
+    "activity_code": { // ------------- add this
+      "dataType": "numeric",
+      "imputation": "mode",
       "aggregation": "sum",
       "role": "target"
     },
@@ -36,13 +62,6 @@ module.exports = {
       "dataType": "string",
       "imputation": "mode",
       "aggregation": "mode",
-      "role": "none"
-    },
-
-    "activity_code": {
-      "dataType": "numeric",
-      "imputation": "zeroes",
-      "aggregation": "sum",
       "role": "none"
     },
     "race_recode_3": {
@@ -88,12 +107,6 @@ module.exports = {
       "aggregation": "sum",
       "role": "none"
     },
-    "manner_of_death": {
-      "dataType": "numeric",
-      "imputation": "zeroes",
-      "aggregation": "sum",
-      "role": "none"
-    },
     "resident_status": {
       "dataType": "numeric",
       "imputation": "zeroes",
@@ -101,12 +114,6 @@ module.exports = {
       "role": "none"
     },
     "113_cause_recode": {
-      "dataType": "numeric",
-      "imputation": "zeroes",
-      "aggregation": "sum",
-      "role": "none"
-    },
-    "358_cause_recode": {
       "dataType": "numeric",
       "imputation": "zeroes",
       "aggregation": "sum",
@@ -374,12 +381,6 @@ module.exports = {
       "dataType": "numeric",
       "imputation": "zeroes",
       "aggregation": "sum",
-      "role": "none"
-    },
-    "method_of_disposition": {
-      "dataType": "string",
-      "imputation": "mode",
-      "aggregation": "mode",
       "role": "none"
     },
     "icd_code_10th_revision": {

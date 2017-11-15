@@ -23,13 +23,13 @@ router.get('/', (req, res) =>
 
 //send
 router.post('/', (req, res) => {
-
+  console.log('sending request to nexosis client');
   /* This section will use the json 'data' to create a dataset on nexosis */
   // nexosisClient.DataSets.create(dataName, data)
-    // .then(response => {
-    //   console.log('imprted from s3');
-    //   res.send('success');
-    // });
+  //   .then(response => {
+  //     console.log('imprted from s3', response);
+  //     res.send('success');
+  //   });
 
   /* This section will import the csv from an s3 bucket. */
   // nexosisClient.Imports.importFromS3(dataName, bucket, fileName, s3Region)

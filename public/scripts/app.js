@@ -6,8 +6,7 @@ var trainData = ()=> {
   $.ajax({
     type: 'POST',
     url: '/train',
-    data: 'train',
-    success: getStatus
+    data: 'train'
   });
 }; // end trainData
 
@@ -35,9 +34,8 @@ var constructDurration = (lifetime)=> {
 
 // checks that all input fields are valid
 var validateForm = (prediction)=> {
-
   data = prediction.data[0];
-  if (data.sex && data.education_2003_revision && data.marital_status) {
+  if (data.education_2003_revision && data.marital_status) {
     return true;
   } else {
     return false;
@@ -88,6 +86,7 @@ app.controller('mainController', function($location, $http) {
       // make prediction and cache results before rerouting
       $http.post('/', predictionData)
         .then((response)=> {
+          // console.log(response.data);
           vm.lifetime = response.data.data[0].detail_age;
           vm.age = constructDurration(vm.lifetime);
           vm.birthday.add(vm.age);
