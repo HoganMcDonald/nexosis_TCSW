@@ -7,11 +7,13 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108397699-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-108397699-1');
-    </script>
+    window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'UA-108397699-1');
+</script>
   </head>
 
   <body ng-controller="mainController as mc" ng-init="mc.pageLoad()">
@@ -21,7 +23,7 @@
 
     <!-- controlls -->
     <div class="controls">
-      <label for="birthday">Date of Birth: <br><input name="birthday" type="date" class="date" placeholder="Date of Birth"></label>
+      <label for="birthday">Date of Birth: <br><input name="birthday" type="date" class="date" ng-model="mc.date"placeholder="Date of Birth"></label>
       <label>Sex: <br><select class="sex" ng-model="mc.sex">
         <option disabled>Sex</option>
         <option value="M">M</option>
