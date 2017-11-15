@@ -2,52 +2,14 @@
 
 $appFont: 'Carter One'
 
-html
-  font-family: $appFont
-  body
-    margin: 0
-    height: 100vh
-    width: 100vw
-    .wrapper
-      height: 80vh
-      width: 100%
-      display: grid
-      grid-template-columns: auto 80vw auto
-      img
-        grid-column-start: 2
-        justify-self: center
-        align-self: center
-        width: 100%
-        max-height: 80%
-      .results
-        display: table
-        width: 20vw
-        color: white
-        position: fixed
-        top: 14vh
-        left: 50%
-        transform: translateX(-50%)
-        text-align: center
-        h1
-          font-size: 4vh
-        h2
-          font-size: 4vh
-    .controls
-      grid-row-start: 2
-      width: 40vw
-      margin: auto
-      display: grid
-      grid-template-columns: 40% 40%
-      grid-column-gap: 20%
-      grid-row-gap: 2vh
-      label
-        font-size: 10pt
-        text-align: center
-      select
-        width: 60%
-      input
-        width: 60%
-      #submit
-        grid-column-start: 1
-        grid-column-end: 3
-        margin: auto
+// desktop styles
+@media (min-width: $minDesktop)
+  @import desktop
+
+// ipad styles
+@media (min-width: $minIpad) and (max-width: $maxIpad)
+  @import tablet
+
+// mobile styles
+@media (max-width: $maxPhone)
+  @import mobile
