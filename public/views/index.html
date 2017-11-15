@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-  <head>
-    <meta charset="utf-8">
-    <title>I Know When You're Going to Die!</title>
-    <link rel="stylesheet" href="/styles/main.min.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108397699-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
+<head>
+  <meta charset="utf-8">
+  <title>I Know When You're Going to Die!</title>
+  <link rel="stylesheet" href="/styles/main.min.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108397699-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
 function gtag() {
   dataLayer.push(arguments);
 }
 gtag('js', new Date());
 gtag('config', 'UA-108397699-1');
 </script>
-<base href="/">
-  </head>
+  <base href="/">
+</head>
 
-  <body ng-controller="mainController as mc" ng-init="mc.pageLoad()">
+<body ng-controller="mainController as mc" ng-init="mc.pageLoad()">
 
-    <!-- load partials -->
-    <ng-view></ng-view>
+  <!-- load partials -->
+  <ng-view></ng-view>
 
-    <!-- controlls -->
-    <div class="controls">
-      <label for="birthday">Date of Birth: <br><input name="birthday" type="date" class="date" ng-model="mc.date"placeholder="Date of Birth"></label>
-      <label>Sex: <br><select class="sex" ng-model="mc.sex">
-        <option disabled>Sex</option>
-        <option value="M">M</option>
-        <option value="F">F</option>
-        <option value="">Other</option>
+  <!-- controlls -->
+  <div class="controls">
+    <label for="birthday" class="phone_block">Date of Birth: <br><input name="birthday" type="date" class="date" ng-model="mc.date"placeholder="Date of Birth"></label>
+    <label class="phone_block">Sex: <br>  <select class="sex" ng-model="mc.sex">
+          <option value="M">M</option>
+          <option value="F">F</option>
+          <option value="">Other</option>
       </select></label>
-      <label>Marital Status: <br><select class="marital_status" ng-model="mc.marital_status">
+    <label class="phone_block">Marital Status: <br><select class="marital_status" ng-model="mc.marital_status">
         <option disabled>Marital Status</option>
         <option value="S">Never married, single</option>
         <option value="M">Married</option>
@@ -39,7 +40,7 @@ gtag('config', 'UA-108397699-1');
         <option value="D">Divorced</option>
         <option value="U">Marital Status unknown</option>
       </select></label>
-      <label>Education: <br><select class="education_2003_revision" ng-model="mc.education_2003_revision">
+    <label class="phone_block">Education: <br><select class="education_2003_revision" ng-model="mc.education_2003_revision">
         <option disabled>Highest Education</option>
         <option value="1">8th grade or less</option>
         <option value="2">9 - 12th grade, no diploma</option>
@@ -50,17 +51,21 @@ gtag('config', 'UA-108397699-1');
         <option value="7">Master’s degree</option>
         <option value="8">Doctorate or professional degree</option>
         <option value="9">Unknown</option>
-      </select></label>
-      <button type="button" name="submit" id="submit" ng-click="mc.submit()">Find Out!</button>
-    </div>
+      </select>
+    </label>
+  </div>
+
+  <div class="row">
+    <button class="phone_block" type="button" name="submit" id="submit" ng-click="mc.submit()">Find Out!</button>
+  </div>
 
 
-    <!-- scripts -->
-    <script src="vendors/jquery.min.js" charset="utf-8"></script>
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <script src="vendors/moment.js" charset="utf-8"></script>
-    <script src="scripts/app.js" charset="utf-8"></script>
-  </body>
+  <!-- scripts -->
+  <script src="vendors/jquery.min.js" charset="utf-8"></script>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+  <script src="vendors/moment.js" charset="utf-8"></script>
+  <script src="scripts/app.js" charset="utf-8"></script>
+</body>
 
 </html>

@@ -29,21 +29,31 @@ html
         h2
           font-size: 4vh
     .controls
-      grid-row-start: 2
-      width: 40vw
-      margin: auto
-      display: grid
-      grid-template-columns: 40% 40%
-      grid-column-gap: 20%
-      grid-row-gap: 2vh
+      display: flex
+      flex-flow: row wrap
+      justify-content: left
+      width: 98%
+      margin: 1%
+      .phone_block
+        flex: 0 0 96%; /* phone */
+        margin: 2% 2%
       label
-        font-size: 10pt
-        text-align: center
+        font-size: 3em
       select
         width: 60%
+        font-size: .75em
       input
-        width: 60%
-      #submit
-        grid-column-start: 1
-        grid-column-end: 3
-        margin: auto
+        width: 100%
+        font-size: 1em
+    .row
+        display: flex
+        flex-flow: row wrap
+        justify-content: center
+        width: 98%
+        margin: 2%
+    button
+      font-size: 3em
+      padding: 12px 20px
+      font-size: 4em
+      border: 1px solid black
+      background-color: white
