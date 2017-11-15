@@ -4,4 +4,3 @@ node_modules/
 *.env
 *.lock
 package-lock.json
-public/styles/main.min.css
