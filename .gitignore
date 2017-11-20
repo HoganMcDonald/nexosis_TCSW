@@ -4,3 +4,4 @@ node_modules/
 *.env
 *.lock
 package-lock.json
+.env.rtf
